@@ -47,7 +47,7 @@ class InitiateJobs extends Component
             $vehicle->serviceJobs()->sync($this->selectedJobs);
         }
 
-        Toaster::success('Jobs saved successfully')
+        Toaster::success('Jobs saved successfully');
     }
     public function submit()
     {
