@@ -7,6 +7,7 @@ use App\Models\Vehicle;
 use Livewire\Component;
 use App\Models\ServiceJob;
 use Livewire\WithPagination;
+use Masmerise\Toaster\Toaster;
 
 class InitiateJobs extends Component
 {
@@ -45,6 +46,8 @@ class InitiateJobs extends Component
         if ($vehicle) {
             $vehicle->serviceJobs()->sync($this->selectedJobs);
         }
+
+        Toaster::success('Jobs saved successfully')
     }
     public function submit()
     {
