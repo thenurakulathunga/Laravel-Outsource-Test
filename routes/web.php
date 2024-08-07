@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Dashboard\UserRegistration;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
@@ -11,6 +12,8 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function () {
 
     Route::view('profile', 'profile')
         ->name('profile');
+
+    Route::get('user-registration' , UserRegistration::class)->name('dashboard.user-registration');
 });
 
 

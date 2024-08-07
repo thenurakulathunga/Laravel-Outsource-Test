@@ -17,6 +17,17 @@ class UserRoleSeeder extends Seeder
     {
         $role1 = Role::create(['name' => 'Admin']);
 
+        $role2 = Role::create(['name' => 'User']);
+
+        $user  = User::create(
+            ['name' => "Thenura Piyumal user 1", 'password' => Hash::make('Thenura@2001'), 'email' => 'thenura@thesanmark1.com' , 'nic' => '200124900981']
+        );
+        $user = $user->assignRole($role2);
+        $user  = User::create(
+            ['name' => "Thenura Piyumal user 2", 'password' => Hash::make('Thenura@2001'), 'email' => 'thenura@thesanmark2.com' , 'nic' => '200124900982']
+        );
+        $user = $user->assignRole($role2);
+        
         $user  = User::create(
             ['name' => "Thenura Piyumal", 'password' => Hash::make('Thenura@2001'), 'email' => 'thenura@thesanmark.com' , 'nic' => '200124900980']
         );
