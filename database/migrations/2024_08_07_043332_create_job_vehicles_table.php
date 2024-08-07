@@ -13,21 +13,9 @@ return new class extends Migration
     {
         Schema::create('service_job_vehicles', function (Blueprint $table) {
             $table->id();
-$table->bigInteger('vehicle_id')->unsigned();
-$table->bigInteger('job_id')->unsigned();
-
-$table->foreign('job_id')
-      ->references('id')
-      ->on('jobs')
-      ->onDelete('cascade');
-
-$table->foreign('vehicle_id')
-      ->references('id')
-      ->on('vehicles')
-      ->onDelete('cascade');
-
-$table->timestamps();
-
+            $table->foreignId('service_job_id')->constrained('service_jobs')->onDelete('cascade');
+            $table->foreignId('vehicle_id')->constrained('vehicles')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -36,6 +24,6 @@ $table->timestamps();
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_vehicles');
+        Schema::dropIfExists('service_job_vehicles');
     }
 };

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Vehicle extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'registration_number',
         'model',
@@ -19,6 +20,7 @@ class Vehicle extends Model
         'user_id',
         'transmission',
     ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -26,6 +28,6 @@ class Vehicle extends Model
 
     public function serviceJobs(): BelongsToMany
     {
-        return $this->belongsToMany(ServiceJob::class);
+        return $this->belongsToMany(ServiceJob::class, 'service_job_vehicles');
     }
 }

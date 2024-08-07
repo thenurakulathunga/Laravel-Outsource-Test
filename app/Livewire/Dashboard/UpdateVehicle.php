@@ -43,7 +43,6 @@ class UpdateVehicle extends Component
             'selectedUserId' => ['nullable'],
         ]);
 
-        // $vehicleId = $this->vehicleId;
         $vehicle = VehicleHandler::update($validatedData, $this->vehicleId);
 
         if ($vehicle) {

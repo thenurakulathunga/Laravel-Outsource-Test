@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Dashboard\InitiateJobs;
 use App\Livewire\Dashboard\UpdateVehicle;
 use App\Livewire\Dashboard\Vehicles;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,7 @@ Route::group(['middleware' => ['auth', 'role:Admin']], function () {
     Route::get('user' , UserRegistration::class)->name('dashboard.user');
     Route::get('vehicles' , Vehicles::class)->name('dashboard.vehicles');
     Route::get('vehicle/{vehicleId}' , UpdateVehicle::class)->name('dashboard.vehicle.update');
+    Route::get('initiate-jobs' , InitiateJobs::class)->name('dashboard.initiate-jobs');
 });
 
 

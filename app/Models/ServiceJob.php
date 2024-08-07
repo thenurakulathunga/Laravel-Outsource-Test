@@ -20,6 +20,6 @@ class ServiceJob extends Model
 
     public function vehicles(): BelongsToMany
     {
-        return $this->belongsToMany(Vehicle::class);
+        return $this->belongsToMany(Vehicle::class, 'service_job_vehicles');
     }
 }
