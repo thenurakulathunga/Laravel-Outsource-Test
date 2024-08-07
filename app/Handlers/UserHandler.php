@@ -27,12 +27,12 @@ class UserHandler
 		$user->assignRole('User');
 		return $user;
     }
-    public static function userFilter($data = array())
-    {
-		$users = User::when($data['filter_email'], function ($query) use($data) {
-            $query->where('email', 'like', '%' . $data['filter_email'] . '%');
-        })->paginate(10);
+    // public static function userFilter($data = array())
+    // {
+	// 	$users = User::when($data['filter_email'], function ($query) use($data) {
+    //         $query->where('email', 'like', '%' . $data['filter_email'] . '%');
+    //     })->paginate(10);
 
-		return $users;
-    }
+	// 	return $users;
+    // }
 }
